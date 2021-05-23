@@ -3,12 +3,16 @@ package com.java.problems.Array;
 public class RotateArray {
 	public static void main(String[] args) {
 		int arr[] = new int[] { 2, 4, 6, 8, 10, 12, 14, 16, 18, 20 };
+		int rotateBy = 3;
 //		printArr(arr);
 //		?rotateArr(arr);
-		System.out.println("");
+		System.out.println("Normal Array");
 		printArr(arr);
-		rotateArrByN(arr, 3);
-		System.out.println("");
+		/*
+		 * rotateArrByN(arr, rotateBy); System.out.println(" Clockwise Array");
+		 * printArr(arr);
+		 */System.out.println(" Anticlockwise Array");
+		rotateArrByNAnti(arr, rotateBy);
 		printArr(arr);
 	}
 
@@ -30,10 +34,20 @@ public class RotateArray {
 			d--;
 		}
 	}
+
 	// anticlockwise rotation
-
 	private static void rotateArrByNAnti(int arr[], int d) {
+		for (int i = 1; i <= d; i++) {
+			leftRotateByOne(arr, d);
+		}
+	}
 
+	private static void leftRotateByOne(int[] arr, int d) {
+		int temp = arr[0];
+		for (int i = 0; i < arr.length - 1; i++) {
+			arr[i] = arr[i + 1];
+		}
+		arr[arr.length - 1] = temp;
 	}
 
 	private static void rotateArr(int[] arr) {
