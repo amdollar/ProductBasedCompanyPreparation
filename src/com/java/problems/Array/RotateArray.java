@@ -2,18 +2,49 @@ package com.java.problems.Array;
 
 public class RotateArray {
 	public static void main(String[] args) {
-		int arr[] = new int[] { 2, 4, 6, 8, 10, 12, 14, 16, 18, 20 };
-		int rotateBy = 3;
+		int arr[] = new int[] { 1, 2, 3, 4, 5 };
+		int rotateBy = 2;
 //		printArr(arr);
 //		?rotateArr(arr);
-		System.out.println("Normal Array");
+		System.out.println("Normal Array:");
 		printArr(arr);
 		/*
 		 * rotateArrByN(arr, rotateBy); System.out.println(" Clockwise Array");
 		 * printArr(arr);
-		 */System.out.println(" Anticlockwise Array");
-		rotateArrByNAnti(arr, rotateBy);
+		 *//*
+			 * System.out.println(" Anticlockwise Array"); rotateArrByNAnti(arr, rotateBy);
+			 */
+		/*
+		 * System.out.println("\nClockwise Rotated Array:"); rotateArrayClockwise(arr,
+		 * rotateBy); printArr(arr);
+		 */
+		System.out.println("\nAntiClockwise Rotated Array:");
+		rotateArrayAntiClockwise(arr, rotateBy);
 		printArr(arr);
+	}
+
+	private static void rotateArrayAntiClockwise(int[] arr, int rotateBy) {
+		rotateArr(arr, 0, arr.length - 1);
+		rotateArr(arr, 0, arr.length - rotateBy - 1);
+		rotateArr(arr, arr.length - rotateBy, arr.length-1);
+
+	}
+
+	public static void rotateArrayClockwise(int[] arr, int d) {
+		rotateArr(arr, 0, arr.length - 1);
+		rotateArr(arr, 0, d - 1);
+		rotateArr(arr, d, arr.length - 1);
+	}
+
+	private static void rotateArr(int[] arr, int start, int end) {
+		while (start <= end) {
+			int temp = arr[start];
+			arr[start] = arr[end];
+			arr[end] = temp;
+			start++;
+			end--;
+		}
+
 	}
 
 	private static void printArr(int[] arr) {
