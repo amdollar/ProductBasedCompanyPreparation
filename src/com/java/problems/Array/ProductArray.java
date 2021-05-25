@@ -13,7 +13,7 @@ public class ProductArray {
 	}
 
 	private static int[] getProductArrTwo(int[] arr) {
-		int n = arr.length;
+		int n = arr.length	;
 
 		int left[] = new int[n];
 		int right[] = new int[n];
