@@ -1,6 +1,5 @@
 package com.java.problems.Stack;
 
-import java.util.Iterator;
 import java.util.Stack;
 
 public class ValidParentheses {
